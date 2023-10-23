@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import ListShop from '../components/ListShop'
 
 const RestaurantList = () => {
-    const [shop, setShop] = useState([])
+    const [shops, setShop] = useState([])
 
     useEffect(() => {
         getShop()
@@ -13,13 +14,18 @@ const RestaurantList = () => {
         let data = await response.json()
         console.log(data)
         setShop(data)
-    
     }
 
     return (
         <div>
-            <h2>{shop['0']['name']}</h2>
-        </div>
+            <h2>&#9782; Shops</h2>
+            <p>{shops.length}</p>
+            {
+                shops.map((shop, index) => (
+                    <ListShop key={index} shop={shop} />
+                ))
+            }
+        </div >
     )
 }
 

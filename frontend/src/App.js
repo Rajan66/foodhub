@@ -1,13 +1,24 @@
-import Header from './components/Header';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
+import Header from "./components/Header";
 import './App.css';
 import RestaurantList from './pages/RestaurantList';
 
+
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <RestaurantList />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        {/* <RestaurantList/> */}
+        <Routes>
+          <Route path='/' Component={RestaurantList} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
