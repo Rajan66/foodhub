@@ -50,7 +50,7 @@ class RestaurantDestroyView(generics.DestroyAPIView, generics.RetrieveAPIView):
         super().perform_destroy(instance)
 
 
-@api_view(['POST'])
+@api_view(['POST','GET'])
 def register(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():

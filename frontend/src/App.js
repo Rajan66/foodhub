@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import './App.css';
 import RestaurantList from './pages/RestaurantList';
 import Login from './components/Login';
+import Register from './components/Register'
 import { RequireAuth } from "react-auth-kit";
 
 
@@ -15,12 +16,10 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        {/* <RestaurantList/> */}
         <Routes>
-          
-            <Route path='/' Component={RestaurantList} />
-         
-          <Route path="/login" element={<Login />}></Route>
+          <Route path='/' Component={RestaurantList} />
+          <Route path='/register' Component={Register} />
+          <Route path='/login' Component={Login} />
         </Routes>
       </div>
     </Router>
