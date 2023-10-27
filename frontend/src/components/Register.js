@@ -19,7 +19,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const defaultTheme = createTheme();
 
-export default function SignIn() {
+export default function SignUp() {
     const navigate = useNavigate();
     const initialFormData = Object.freeze({
         username: '',
@@ -48,18 +48,13 @@ export default function SignIn() {
                 email: formData.email,
             })
             .then((res) => {
-                localStorage.setItem('access_token', res.data.access);
-                localStorage.setItem('refresh_token', res.data.refresh);
-                axiosInstance.defaults.headers['Authorization'] =
-                    'Token ' + localStorage.getItem('access_token');
-                navigate('/login');
-                console.log(res);
-                console.log(res.data);
-            })
-            .then((res) => {
-                console.log("Server response: ", res);
-            })
+				navigate('/api/login')
+				console.log(res);
+				console.log(res.data);
+			})
             .catch((err) => {
+                alert("Invalid input")
+                e.target.reset();
                 console.log("Server respondend with error: ", err);
             });
     };

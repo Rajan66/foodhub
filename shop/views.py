@@ -1,7 +1,6 @@
 from rest_framework import generics, status
 from .serializers import RestaurantSerializer
 from .models import Restaurant
-from django.contrib.auth import logout
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
